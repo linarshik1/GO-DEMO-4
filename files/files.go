@@ -19,6 +19,7 @@ func WriteFile(content []byte, name string) error {
 	file, err := os.Create(name)
 	if err != nil {
 		fmt.Println(err)
+		return err
 	}
 	defer file.Close()
 	_, err = file.Write(content)
