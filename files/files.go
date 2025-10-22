@@ -2,8 +2,9 @@ package files
 
 import (
 	"demo/password/output"
-	"fmt"
 	"os"
+
+	"github.com/fatih/color"
 )
 
 type JsonDb struct {
@@ -32,8 +33,8 @@ func (db *JsonDb) Write(content []byte) {
 	defer file.Close()
 	_, err = file.Write(content)
 	if err != nil {
-		output.PrintError("Неверный формат URL или Логин")
+		output.PrintError(err)
 		return
 	}
-	fmt.Println("Запись успешна")
+	color.Green("Запись успешна")
 }
